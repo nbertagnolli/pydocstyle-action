@@ -1,0 +1,20 @@
+name: "pydocstyle"
+description: "An action to run pydocstyle, a static analysis tool for checking compliance with Python docstring conventions."
+author: "Nicolas Bertagnolli"
+branding:
+  icon: 'book'
+  color: 'blue'
+inputs:
+  path:
+    description: 'File or directory to run pydocstyle on.'
+    required: false
+    default: '.'
+
+outputs:
+  output:
+    description: 'The output of pydocstyle'
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.path }}

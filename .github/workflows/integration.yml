@@ -1,0 +1,15 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Self test
+        id: selftest
+        uses: nbertagnolli/pydocstyle-action@main
+        with:
+          path: "tests/invalid.yaml"
+      - name: Check outputs and modified files
+        run: |
+          test "${{ steps.selftest.outputs }}" == "1"
