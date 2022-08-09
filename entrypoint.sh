@@ -1,4 +1,4 @@
 #!/bin/dash
-set -e
+set -eax
 
 python -m pydocstyle "$1"

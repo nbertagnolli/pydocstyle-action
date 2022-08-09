@@ -11,8 +11,8 @@ jobs:
         with:
           path: "tests/invalid.yaml"
       - name: Check outputs and modified files
-        run: echo ${{ steps.testFileWithErrors.outcome }}
-        # run: if [[ ${{ steps.testFileWithErrors.outcome }} == "failure" ]]; then exit 0; else exit 1; fi
+        # run: echo ${{ steps.testFileWithErrors.outcome }}
+        run: if [[ ${{ steps.testFileWithErrors.outcome }} == "failure" ]]; then exit 0; else exit 1; fi
       # - name: Test file without errors
       #   id: testFileWithoutErrors
       #   uses: nbertagnolli/pydocstyle-action@main
