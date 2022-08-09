@@ -5,11 +5,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Self test
-        id: selftest
+      - name: Test file with errors
+        id: testFileWithErrors
         uses: nbertagnolli/pydocstyle-action@main
         with:
           path: "tests/invalid.yaml"
       - name: Check outputs and modified files
-        run: |
-          test "${{ steps.selftest.outputs }}"
+        run: echo ${{ steps.testFileWithErrors.outcome }}
+        # run: if [[ ${{ steps.testFileWithErrors.outcome }} == "failure" ]]; then exit 0; else exit 1; fi
+      # - name: Test file without errors
+      #   id: testFileWithoutErrors
+      #   uses: nbertagnolli/pydocstyle-action@main
+      #   with:
+      #     path: "tests/valid.yaml"
+      # - name: Check outputs and modified files
+      #   run: if [[ ${{ steps.testFileWithoutErrors.outcome }} == "failure" ]]; then exit 1; else exit 0; fi
