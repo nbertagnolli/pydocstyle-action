@@ -3,6 +3,7 @@ ADD . /app
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
+RUN pip install --upgrade pip
 RUN pip install --target=/app pydocstyle
 
 # A distroless container image with Python and some basics like SSL certificates
