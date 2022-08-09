@@ -12,4 +12,4 @@ jobs:
           path: "tests/invalid.yaml"
       - name: Check outputs and modified files
         run: |
-          test "${{ steps.selftest.outputs }}" == "1"
+          test "${{ steps.selftest.outputs }}"

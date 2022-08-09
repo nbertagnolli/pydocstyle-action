@@ -2,4 +2,4 @@
 set -e
 
 python -m pydocstyle --version
-python -m pydocstyle "$1"
+python -mpydocstyle "$1"
