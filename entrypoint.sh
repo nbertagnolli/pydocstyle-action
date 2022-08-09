@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/dash
 set -e
 
-pydocstyle --version
-pydocstyle "$1"
+python -m pydocstyle --version
+python -m pydocstyle "$1"
