@@ -13,6 +13,8 @@ inputs:
 outputs:
   output:
     description: 'The output of pydocstyle'
+  status:
+    description: 'The output status of pydocustyle 1 if failure 0 if success'
 runs:
   using: "docker"
   image: "Dockerfile"
